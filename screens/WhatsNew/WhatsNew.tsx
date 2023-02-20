@@ -8,7 +8,7 @@ import updates from "../../assets/data/updates.json";
 
 const WhatsNew = () => {
   return (
-    <Layout twStyles = "flex-1 justify-center items-center bg-white dark:bg-[#131313]">
+    <Layout twStyles = "flex-1 justify-center items-center defaultBg">
       <ScrollView style = {[ tw `flex-1`]}>
         <Header
           center = {

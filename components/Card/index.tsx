@@ -1,9 +1,13 @@
 import { Pressable, View, TouchableOpacity } from 'react-native';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { CardProps } from '../../interfaces/Interfaces';
 import tw from '../../utils/tw';
 import { BlurView } from "expo-blur";
+import useDarkMode from '../../hooks/useDarkMode';
+
 const Card = ({ children, twStyles, onPress, blur, touchableOpacity, activeOpacity, pressable }: CardProps ) => {
+  const { renderTheme } = useDarkMode();
+  renderTheme();
   if (pressable) {
     return (
       <Pressable 

@@ -1,8 +1,7 @@
-import React, { useContext, useRef, useState } from 'react';
+import React, { useContext, useRef } from 'react';
 import ActionSheet, { ActionSheetRef,SheetProps } from 'react-native-actions-sheet';
 import Text from '../Text';
 import Card from '../Card';
-import tw from '../../utils/tw';
 import { View } from 'react-native';
 import Button from '../Button';
 import { useNavigation } from '@react-navigation/native';
@@ -12,20 +11,23 @@ import { GlobalContext } from '../../context/Global';
 import useDarkMode from '../../hooks/useDarkMode';
 
 
-const DeleteResult = ({ sheetId, payload }: SheetProps<[id: 'string']>) => {
+const DeleteResult = ({ sheetId, payload }: SheetProps) => {
   const actionSheetRef = useRef<ActionSheetRef>(null); 
   const navigation = useNavigation<StackNavigationType>();
   const { dispatch, data } = useContext(GlobalContext);
   const { theme } = useDarkMode();
   const { user_id } = data;
 
-  const handleSubmit = async (id: any) => {
+  const handleSubmit = () => {
     navigation.replace("Loading");
     const form = new FormData();
     form.append("user_id", user_id);
-    form.append("entry_id", id);
 
-    fetch(BASE_URL.delete_entry, {
+    if (payload !== null) {
+      form.append("entry_id", payload[1]);
+    }
+    
+    fetch(payload[0], {
       method: "POST",
       body: form,
       mode: "cors",
@@ -33,16 +35,17 @@ const DeleteResult = ({ sheetId, payload }: SheetProps<[id: 'string']>) => {
         'Content-Type': 'multipart/form-data',
       },
     })
-    .then(async () => {
-      navigation.goBack();
-      navigation.goBack();
+    .then(() => {
+      setTimeout(() => {
+        navigation.replace("Home")
+      }, 1000);
     })
     .catch((err) => {
-        console.log(err);
-        dispatch({
-            type: "SET_ERROR",
-            payload: err
-        });
+      console.log(err);
+      dispatch({
+          type: "SET_ERROR",
+          payload: err
+      });
     });
   };
 
@@ -80,8 +83,10 @@ const DeleteResult = ({ sheetId, payload }: SheetProps<[id: 'string']>) => {
             <Button
               twStyles = "bg-red-600 p-2 border-2 border-transparent rounded-xl"
               onPress = { () =>{
-                actionSheetRef.current?.hide();
-                handleSubmit(payload)
+                actionSheetRef.current?.hide() 
+                setTimeout(() => {
+                  handleSubmit()
+                }, 100 )
               }}
             >
               <Text>

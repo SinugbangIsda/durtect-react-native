@@ -1,7 +1,7 @@
 import React from 'react'
 import Card from '../Card'
 import Text from "../Text";
-import ResultsHeader from './ResultsHeader';
+
 const ResultsEmpty = () => {
   return (
     <Card twStyles = "flex-1 my-4 justify-center items-center w-full">

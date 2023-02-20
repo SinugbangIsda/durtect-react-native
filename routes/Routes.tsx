@@ -8,7 +8,6 @@ import History from '../screens/History/History';
 import Diseases from '../screens/Diseases/Diseases';
 import WhatsNew from '../screens/WhatsNew/WhatsNew';
 import { useCachedResources } from '../hooks/useCachedResources';
-import DeleteResult from '../components/ActionSheets/DeleteResult';
 
 const Routes = () => {
     const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -28,8 +27,10 @@ const Routes = () => {
                         component = { Home }
                         options = {{
                             headerShown: false,
-                            gestureEnabled: false
+                            gestureEnabled: false,
+                            animationTypeForReplace: "pop",
                         }} 
+
                     />
                     <Stack.Screen
                         name = "History"
@@ -37,8 +38,7 @@ const Routes = () => {
                         options = {{
                             headerShown: false,
                             gestureEnabled: true,
-                            presentation: "modal",
-                            animation: "slide_from_bottom",
+                            animation: "slide_from_right",
                         }}
                     />
                     <Stack.Screen
@@ -47,8 +47,7 @@ const Routes = () => {
                         options = {{
                             headerShown: false,
                             gestureEnabled: true,
-                            presentation: "modal",
-                            animation: "slide_from_bottom",
+                            animation: "slide_from_right",
                         }} 
                     />
                     <Stack.Screen
@@ -67,7 +66,7 @@ const Routes = () => {
                         options = {{
                             headerShown: false,
                             gestureEnabled: false,
-                            animation: "slide_from_right"
+                            animation: "slide_from_right",
                         }} 
                     />
                     <Stack.Screen

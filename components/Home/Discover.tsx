@@ -10,13 +10,10 @@ import { Styles } from '../../constants/Styles';
 import { AntDesign } from '@expo/vector-icons'; 
 import HorizontalRule from '../HorizontalRule';
 import Pill from '../Pill';
-import useDarkMode from '../../hooks/useDarkMode';
 
 const Discover = () => {
   const navigation = useNavigation<StackNavigationType>();
-  const { renderTheme } = useDarkMode();
-  renderTheme();
-  
+
   return (
     <Card twStyles = "mt-2">
       <Text twStyles = "text-xl font-bold text-black dark:text-white">

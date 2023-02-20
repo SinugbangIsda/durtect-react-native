@@ -4,9 +4,13 @@ import Text from "../../components/Text";
 import Card from '../../components/Card';
 import Header from '../../components/Header';
 import { FlatList } from 'react-native';
+import Button from '../../components/Button';
+import { SheetManager } from 'react-native-actions-sheet';
+import { BASE_URL } from '../../utils/baseurls';
 
 const History = ({ route }: any) => {
   const { data } = route.params;
+
 
   const noData = () => {
     return (
@@ -17,13 +21,24 @@ const History = ({ route }: any) => {
   }
 
   return (
-    <Layout twStyles = "flex-1 justify-center items-center bg-white dark:bg-[#131313]">
+    <Layout twStyles = "flex-1 justify-center items-center defaultBg">
       <Card  twStyles = "flex-1 items-center">
         <Header 
           center = {
-            <Text twStyles = "text-xl font-bold text-black dark:text-white">
-              History
-            </Text>
+            <Card twStyles = "flex-row justify-center items-center">
+              <Text twStyles = "text-xl font-bold defaultText">
+                History
+              </Text>
+              <Button 
+                onPress = {() => {
+                  SheetManager.show("delete-result", { payload: [ BASE_URL.delete_all ] })
+                }}
+              >
+                <Text twStyles = "defaultText mx-5">
+                  Wow
+                </Text>
+              </Button>
+            </Card>
           }
         />
         <FlatList 

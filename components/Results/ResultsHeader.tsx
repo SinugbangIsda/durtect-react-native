@@ -9,6 +9,7 @@ import { Ionicons } from '@expo/vector-icons';
 import tw from '../../utils/tw';
 import { SheetManager } from 'react-native-actions-sheet';
 import { ResultsComponentsProps } from '../../interfaces/Interfaces';
+import { BASE_URL } from '../../utils/baseurls';
 
 const ResultsHeader = ({ data, id }: ResultsComponentsProps) => {
     const navigation = useNavigation<StackNavigationType>();
@@ -26,9 +27,8 @@ const ResultsHeader = ({ data, id }: ResultsComponentsProps) => {
             <Card
                 pressable
                 onPress = {() => {
-                handleContext();
-                navigation.goBack();
-                navigation.goBack();
+                    handleContext();
+                    navigation.replace("Home");
                 }}
             >
                 <Ionicons 
@@ -46,7 +46,7 @@ const ResultsHeader = ({ data, id }: ResultsComponentsProps) => {
             <Card
                 pressable
                 onPress = {() => {
-                    data[0]["status"] === "OK" ? SheetManager.show("delete-result", { payload: id } ) : null
+                    data[0]["status"] === "OK" ? SheetManager.show("delete-result", { payload: [ BASE_URL.delete_entry, id ] } ) : null
                 }}
             >
                 <Ionicons 

@@ -1,3 +1,5 @@
+const { plugin } = require('twrnc');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -10,5 +12,12 @@ module.exports = {
   theme: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    plugin(({ addUtilities }) => {
+      addUtilities({
+        defaultText: `text-black dark:text-white`,
+        defaultBg: `bg-white dark:bg-[#141414]`
+      });
+    }),
+  ],
 }

@@ -1,5 +1,3 @@
-import { useContext } from 'react';
-import { GlobalContext } from '../../context/Global';
 import { ResultsComponentsProps } from '../../interfaces/Interfaces';
 import Card from '../Card';
 import Text from '../Text';

@@ -51,7 +51,7 @@ const useDiseaseDetection = () => {
             })));
             formData.append("timestamp", moment().unix().toString());
             formData.append("user_id", user_id);
-            navigation.navigate("Loading");
+            navigation.replace("Loading");
             fetchData(formData);
         }
     }
@@ -69,7 +69,7 @@ const useDiseaseDetection = () => {
         .then(async (value) => {
             const data = sortResultsData(Object.values(value));
             const id = Object.keys(value);
-            navigation.navigate("Results", { 
+            navigation.replace("Results", { 
                 data: data,
                 id: id[0]
             });
@@ -80,17 +80,12 @@ const useDiseaseDetection = () => {
                 type: "SET_ERROR",
                 payload: err
             });
-            navigation.goBack();
         });
-    }
-
-    const checkIfObjectEmpty = (value: object): boolean => {
-        return Object.keys(value)[0].length === 0;
     }
 
     const sortResultsData = (data: any) => {
         const { xmin, ymin, xmax, ymax, confidence, class: classValue, name, image_uri, status } = data[0];
-        if (checkIfObjectEmpty(xmin)) {
+        if (status === "null") {
             return Object.values(data);
         } else {
             return Object.keys(xmin).map(index => {

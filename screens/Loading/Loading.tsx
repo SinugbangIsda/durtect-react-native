@@ -7,7 +7,7 @@ const Loading = () => {
   const { theme } = useDarkMode();
 
   return (
-    <Layout twStyles = "flex-1 justify-center items-center bg-white dark:bg-[#0B0E11]">
+    <Layout twStyles = "flex-1 justify-center items-center defaultBg">
       <BarIndicator color = { theme === "dark" ? "white" : "black"} count = { 5 } />
     </Layout>
   )

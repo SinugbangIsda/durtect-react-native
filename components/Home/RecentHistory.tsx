@@ -39,8 +39,13 @@ const RecentHistory = () => {
     .then(async (value) => {
       const keys = Object.keys(value);
       const data = Object.values(value);
-      setRecentLogsID(keys);
-      setRecentLogs(data);
+      if (data[0] === "empty"){ 
+        setRecentLogs(null)
+        setRecentLogsID(null)
+      } else {
+        setRecentLogsID(keys);
+        setRecentLogs(data);
+      }
     })
     .catch((err) => {
       console.log(err);
@@ -63,8 +68,13 @@ const RecentHistory = () => {
     .then(async (value) => {
       const keys = Object.keys(value);
       const data = Object.values(value);
-      setAllLogsIDs(keys)
-      setAllLogs(data);
+      if (data[0] === "empty"){ 
+        setAllLogs(null)
+        setAllLogsIDs(null)
+      } else {
+        setAllLogs(keys);
+        setAllLogsIDs(data);
+      }
     })
     .catch((err) => {
       console.log(err);
@@ -86,13 +96,9 @@ const RecentHistory = () => {
     )
   }
 
-  const checkIfObjectEmpty = (value: object): boolean => {
-    return Object.keys(value).length === 0;
-  }
-
   const sortResultsData = (data: any) => {
     const { xmin, ymin, xmax, ymax, confidence, class: classValue, name, image_uri, status} = data;
-    if (checkIfObjectEmpty(xmin)) {
+    if (status === "null") {
       return Object.values(data);
     } else {
         return Object.keys(xmin).map(index => {
@@ -148,9 +154,9 @@ const RecentHistory = () => {
                   key = { index}
                   onPress = {() => {
                     const data = sortResultsData(recentLogs[index])
-                    navigation.navigate("Loading");
+                    navigation.replace("Loading");
                     setTimeout(() => {
-                      navigation.navigate("Results", { 
+                      navigation.replace("Results", { 
                         data: data,
                         id: recentLogsIDs[index]
                       });
