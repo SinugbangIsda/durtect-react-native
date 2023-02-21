@@ -6,7 +6,7 @@ import diseases from "../../assets/data/diseases.json";
 import { StackNavigationType } from '../../types/types';
 import { useNavigation } from '@react-navigation/native';
 import tw from '../../utils/tw';
-import { Styles } from '../../constants/Styles';
+import { Styles } from '../../constants';
 import { AntDesign } from '@expo/vector-icons'; 
 import HorizontalRule from '../HorizontalRule';
 import Pill from '../Pill';

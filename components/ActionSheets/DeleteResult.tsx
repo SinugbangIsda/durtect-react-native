@@ -6,7 +6,6 @@ import { View } from 'react-native';
 import Button from '../Button';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationType } from '../../types/types';
-import { BASE_URL } from '../../utils/baseurls';
 import { GlobalContext } from '../../context/Global';
 import useDarkMode from '../../hooks/useDarkMode';
 

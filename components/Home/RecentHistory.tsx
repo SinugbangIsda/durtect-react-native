@@ -5,8 +5,7 @@ import Text from "../Text";
 import tw from '../../utils/tw';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationType } from "../../types/types";
-import { Styles } from '../../constants/Styles';
-import { BASE_URL } from '../../utils/baseurls';
+import { BASE_URL, Styles } from '../../constants';
 import { GlobalContext } from '../../context/Global';
 import moment, { unix } from 'moment';
 

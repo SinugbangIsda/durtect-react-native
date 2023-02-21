@@ -1,4 +1,4 @@
-import { Styles } from '../../constants/Styles';
+import { Styles } from '../../constants';
 import { View } from 'react-native';
 import { HorizontalRuleProps } from '../../interfaces/Interfaces';
 import tw from '../../utils/tw';

@@ -1,7 +1,7 @@
-import { Image, View } from 'react-native';
+import { Image } from 'react-native';
 import React from 'react';
 import tw from '../../utils/tw';
-import { Styles } from '../../constants/Styles';
+import { Styles } from '../../constants';
 import { ResultsComponentsProps } from '../../interfaces/Interfaces';
 
 

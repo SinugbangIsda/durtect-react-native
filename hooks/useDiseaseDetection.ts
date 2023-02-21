@@ -4,8 +4,8 @@ import * as ImagePicker from "expo-image-picker";
 import { useNavigation } from "@react-navigation/native";
 import { StackNavigationType } from "../types/types";
 import { GlobalContext } from "../context/Global";
-import { BASE_URL } from "../utils/baseurls";
 import moment from "moment";
+import { BASE_URL } from "../constants";
 
 const useDiseaseDetection = () => {
     const navigation = useNavigation<StackNavigationType>();

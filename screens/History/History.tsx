@@ -6,7 +6,7 @@ import Header from '../../components/Header';
 import { FlatList } from 'react-native';
 import Button from '../../components/Button';
 import { SheetManager } from 'react-native-actions-sheet';
-import { BASE_URL } from '../../utils/baseurls';
+import { BASE_URL } from '../../constants';
 
 const History = ({ route }: any) => {
   const { data } = route.params;

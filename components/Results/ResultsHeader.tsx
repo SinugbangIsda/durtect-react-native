@@ -9,7 +9,7 @@ import { Ionicons } from '@expo/vector-icons';
 import tw from '../../utils/tw';
 import { SheetManager } from 'react-native-actions-sheet';
 import { ResultsComponentsProps } from '../../interfaces/Interfaces';
-import { BASE_URL } from '../../utils/baseurls';
+import { BASE_URL } from '../../constants';
 
 const ResultsHeader = ({ data, id }: ResultsComponentsProps) => {
     const navigation = useNavigation<StackNavigationType>();

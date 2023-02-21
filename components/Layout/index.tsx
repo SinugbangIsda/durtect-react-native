@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView } from 'react-native';
 import { SheetProvider } from 'react-native-actions-sheet';
-import { Styles } from '../../constants/Styles';
+import { Styles } from '../../constants';
 import useDarkMode from '../../hooks/useDarkMode';
 import { LayoutProps } from '../../interfaces/Interfaces';
 import tw from '../../utils/tw';
