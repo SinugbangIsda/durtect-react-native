@@ -1,4 +1,3 @@
-import moment from "moment";
 import React, { useState, useEffect } from "react";
 
 const getDayPeriod = ( data: Number ) => {
