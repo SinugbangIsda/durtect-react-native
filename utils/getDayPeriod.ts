@@ -1,12 +1,11 @@
 import moment from "moment";
 import React, { useState, useEffect } from "react";
 
-const getDayPeriod = () => {
-  const getCurrentHour = moment().hour();
-  const [ hour , setHour ] = useState<Number>(getCurrentHour);
+const getDayPeriod = ( data: Number ) => {
+  const [ hour , setHour ] = useState<Number>(data);
   
   useEffect(() => {
-    setHour(getCurrentHour);
+    setHour(data);
   }, [hour])
 
   if (hour < 12) {

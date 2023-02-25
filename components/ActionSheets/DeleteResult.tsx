@@ -12,7 +12,7 @@ import useDarkMode from '../../hooks/useDarkMode';
 
 const DeleteResult = ({ sheetId, payload }: SheetProps) => {
   const actionSheetRef = useRef<ActionSheetRef>(null); 
-  const navigation = useNavigation<StackNavigationType>();
+  const navigation = useNavigation<StackNavigationType>(); 
   const { dispatch, data } = useContext(GlobalContext);
   const { theme } = useDarkMode();
   const { user_id } = data;
