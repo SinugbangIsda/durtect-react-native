@@ -1,7 +1,7 @@
 import { StyleSheet, Platform, StatusBar, Dimensions } from "react-native";
 
-const deviceHeight = Dimensions.get('window').height;
-const deviceWidth = Dimensions.get('window').width;
+export const deviceHeight = Dimensions.get('window').height;
+export const deviceWidth = Dimensions.get('window').width;
 
 export const Styles = StyleSheet.create({
     AndroidSafeArea: {
