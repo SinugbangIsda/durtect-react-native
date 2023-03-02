@@ -9,6 +9,7 @@ import { BASE_URL, Styles } from '../../constants';
 import { GlobalContext } from '../../context/Global';
 import moment, { unix } from 'moment';
 import { sortResultsData } from '../../utils/sortResultsData';
+import { getDateFromTimestamp } from '../../utils/getDateFromTimestamp';
 
 const RecentHistory = () => {
   const navigation = useNavigation<StackNavigationType>();
@@ -72,8 +73,8 @@ const RecentHistory = () => {
         setAllLogs(null)
         setAllLogsIDs(null)
       } else {
-        setAllLogs(keys);
-        setAllLogsIDs(data);
+        setAllLogs(data);
+        setAllLogsIDs(keys);
       }
     })
     .catch((err) => {
@@ -125,7 +126,7 @@ const RecentHistory = () => {
             horizontal
             showsHorizontalScrollIndicator = { false }
             renderItem = {({ item, index  }: any) => { 
-              const timestamp = moment(unix(recentLogs[index]["timestamp"].toString())).format("L")
+              const timestamp = getDateFromTimestamp(recentLogs[index]["timestamp"]);
               return (
                 <Card 
                   pressable

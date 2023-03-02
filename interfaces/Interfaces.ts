@@ -84,3 +84,8 @@ export interface ResultsComponentsProps {
     data: any,
     id?: any,
 }
+
+export interface HistoryComponentsProps {
+    data: any,
+    id?: any
+}
