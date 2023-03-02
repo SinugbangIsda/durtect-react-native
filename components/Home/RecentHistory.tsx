@@ -8,6 +8,7 @@ import { StackNavigationType } from "../../types/types";
 import { BASE_URL, Styles } from '../../constants';
 import { GlobalContext } from '../../context/Global';
 import moment, { unix } from 'moment';
+import { sortResultsData } from '../../utils/sortResultsData';
 
 const RecentHistory = () => {
   const navigation = useNavigation<StackNavigationType>();
@@ -95,27 +96,6 @@ const RecentHistory = () => {
     )
   }
 
-  const sortResultsData = (data: any) => {
-    const { xmin, ymin, xmax, ymax, confidence, class: classValue, name, image_uri, status} = data;
-    if (status === "null") {
-      return Object.values(data);
-    } else {
-        return Object.keys(xmin).map(index => {
-            return {
-                xmin: xmin[index], 
-                ymin: ymin[index], 
-                xmax: xmax[index], 
-                ymax: ymax[index], 
-                confidence: confidence[index], 
-                class: classValue[index], 
-                name: name[index],
-                image_uri: image_uri,
-                status: status
-            };
-        });
-    }
-  }
-
   useEffect(() => {
     fetchData();
   }, [ data ]);
@@ -152,7 +132,7 @@ const RecentHistory = () => {
                   twStyles = {`flex-1 flex justify-center items-center ${index === recentLogs.length - 1 ? '' : 'mr-4'}`}
                   key = { index}
                   onPress = {() => {
-                    const data = sortResultsData(recentLogs[index])
+                    const data = sortResultsData([recentLogs[index]])
                     navigation.replace("Loading");
                     setTimeout(() => {
                       navigation.replace("Results", { 

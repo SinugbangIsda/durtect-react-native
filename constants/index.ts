@@ -42,9 +42,9 @@ export const Styles = StyleSheet.create({
 });
 
 export const BASE_URL = {
-    detect: "http://192.168.68.114:5000/d",
-    recent_history: "http://192.168.68.114:5000/rh",
-    all_history: "http://192.168.68.114:5000/ah",
-    delete_entry: "http://192.168.68.114:5000/dl",
-    delete_all: "http://192.168.68.114:5000/dal"
+    detect: "http://10.15.11.227:5000/d",
+    recent_history: "http://10.15.11.227:5000/rh",
+    all_history: "http://10.15.11.227:5000/ah",
+    delete_entry: "http://10.15.11.227:5000/dl",
+    delete_all: "http://10.15.11.227:5000/dal"
 }
